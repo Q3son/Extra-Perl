@@ -20,8 +20,8 @@ if (!defined $username || $username eq '' || !defined $domain || $domain eq '') 
     exit;
 }
 
-# Crear el correo electrónico usando concatenación sin el operador punto
-my $email = $username . '@' . $domain; # Concatenación sin punto
+# Crear el correo electrónico
+my $email = $username . '@' . $domain;
 
 # Imprimir el correo electrónico generado
 print $cgi->header('text/plain');

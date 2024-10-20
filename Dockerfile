@@ -28,7 +28,7 @@ RUN a2enmod perl
 
 # Copiar los archivos del proyecto al directorio adecuado
 COPY ./html /var/www/html
-COPY ./perl/email_generator.pl /usr/lib/cgi-bin/email_generator.pl
+COPY ./cgi-bin/email_generator.pl /usr/lib/cgi-bin/email_generator.pl
 
 # Darle permisos para que ejecute
 RUN chmod +x /usr/lib/cgi-bin/email_generator.pl

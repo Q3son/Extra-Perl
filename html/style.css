@@ -1,0 +1,56 @@
+html, body {
+    height: 100%; /* Asegura que html y body ocupen toda la altura */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #007BFF, #00BFFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header, .content, .footer {
+    width: 90%; /* Ocupa el 90% del ancho de la pantalla */
+    max-width: 600px; /* Maxima anchura para mantener el diseño */
+    margin: 20px auto; /* Centra en la página */
+}
+
+.content {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px; /* Espacio interno */
+    margin: 10px 0; /* Margen vertical */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+button {
+    padding: 10px 20px; /* Espacio interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+.footer {
+    text-align: center; /* Centra el texto */
+    margin-top: 20px; /* Margen superior */
+}
+
+.icon {
+    font-weight: bold; /* Negrita */
+}
