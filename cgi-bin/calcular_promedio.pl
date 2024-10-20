@@ -1,32 +1,35 @@
 #!/usr/bin/perl
-
 use utf8;                             # Permite el uso de caracteres UTF-8
-use strict;                          # Habilita restricciones de declaración
-use warnings;                        # Activa advertencias sobre posibles errores
-use CGI qw(:standard);               # Importa la biblioteca CGI
-use URI::Escape;                     # Permite la codificación de URI
-use List::Util qw(max min sum);      # Importa funciones de List::Util
+use strict;                           # Habilita restricciones de declaración
+use warnings;                         # Activa advertencias sobre posibles errores
+use CGI qw(:standard);                # Importa la biblioteca CGI
+use URI::Escape;                      # Permite la codificación de URI
+use List::Util qw(min max);          # Importa min y max desde List::Util
 
-print header('text/html; charset=UTF-8');
-print start_html('Calcular Promedio');
+# Crear un nuevo objeto CGI
+my $cgi = CGI->new;
 
-my $q = CGI->new;
-my $notas_str = $q->param('notas');
-my @notas = split /,\s*/, $notas_str;
+print $cgi->header();                 # Imprime la cabecera HTTP
+print $cgi->start_html("Calcular Promedio");
 
-# Calcular la peor y la mejor nota
-my $peor_nota = min(@notas);
-my $mejor_nota = max(@notas);
+# Recibe las notas como un string y lo convierte en un array
+my $notas_param = $cgi->param('notas');
+my @notas = split(/,\s*/, $notas_param); # Separa las notas en base a comas
+my $min = min(@notas);                 # Encuentra la nota mínima
+my $max = max(@notas);                 # Encuentra la nota máxima
 
-# Crear un nuevo array de notas
-my @nuevas_notas = map { $_ == $peor_nota ? () : ($_ == $mejor_nota ? $_ * 2 : $_) } @notas;
+# Reemplaza la nota mínima por la máxima en un nuevo array
+my @nuevas_notas = map { $_ == $min ? $max : $_ } @notas;
 
-# Calcular el promedio
-my $promedio = @nuevas_notas ? (sum(@nuevas_notas) / @nuevas_notas) : 0;
+# Calcula el promedio solo de las nuevas notas
+my $suma = 0;
+$suma += $_ for @nuevas_notas;       # Suma todas las nuevas notas
+my $promedio = @nuevas_notas ? $suma / @nuevas_notas : 0; # Calcula el promedio
 
-print "<h1>Promedio Calculado</h1>";
-print "<p>Notas originales: $notas_str</p>";
-print "<p>Notas ajustadas: @nuevas_notas</p>";
-print "<p>Promedio: $promedio</p>";
+# Muestra el resultado
+print $cgi->h1("Resultados del Cálculo");
+print $cgi->p("Notas ingresadas: " . join(", ", @notas));
+print $cgi->p("Notas cambiadas: " . join(", ", @nuevas_notas));
+print $cgi->p("El promedio de las nuevas notas es: $promedio");
 
-print end_html;
+print $cgi->end_html();

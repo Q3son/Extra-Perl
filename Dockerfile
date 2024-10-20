@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # Establecer zona horaria a UTC
 ENV DEBIAN_FRONTEND=noninteractive
@@ -29,7 +29,7 @@ RUN a2enmod perl
 # Copiar los archivos del proyecto al directorio adecuado
 COPY ./html /var/www/html
 COPY ./cgi-bin/email_generator.pl /usr/lib/cgi-bin/email_generator.pl
-COPY ./cgi-bin/calcular_promedio.pl /usr/lib/cgi-bin/calcular_promedio.pl  # Copia del nuevo script
+COPY ./cgi-bin/calcular_promedio.pl /usr/lib/cgi-bin/calcular_promedio.pl
 
 # Darle permisos para que ejecute
 RUN chmod +x /usr/lib/cgi-bin/email_generator.pl
