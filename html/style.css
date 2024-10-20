@@ -7,6 +7,7 @@ body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #007BFF, #00BFFF);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -18,37 +19,50 @@ body {
 }
 
 .content {
-    padding: 20px;
+    padding: 30px; /* Aumenta el padding para más espacio */
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
     text-align: center;
+}
+
+h1 {
+    color: #fff; /* Color del encabezado blanco */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
 }
 
 input[type="text"] {
     width: 100%; /* Ocupa todo el ancho del contenedor */
-    padding: 10px; /* Espacio interno */
-    margin: 10px 0; /* Margen vertical */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Aumenta el espacio interno */
+    margin: 15px 0; /* Margen vertical */
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados más acentuados */
+    transition: border-color 0.3s; /* Transición suave al cambiar el borde */
+}
+
+input[type="text"]:focus {
+    border-color: #0056b3; /* Color del borde al enfocar */
 }
 
 button {
-    padding: 10px 20px; /* Espacio interno */
+    padding: 15px 25px; /* Aumenta el espacio interno */
     border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 10px; /* Bordes redondeados */
     background-color: #007BFF; /* Color de fondo azul */
     color: white; /* Color de texto blanco */
     cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
 }
 
 button:hover {
     background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
 }
 
 .footer {
     text-align: center; /* Centra el texto */
     margin-top: 20px; /* Margen superior */
+    color: #fff; /* Color del texto en el pie de página */
 }
 
 .icon {
