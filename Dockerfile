@@ -29,12 +29,15 @@ RUN a2enmod perl
 # Copiar los archivos del proyecto al directorio adecuado
 COPY ./html /var/www/html
 COPY ./cgi-bin/email_generator.pl /usr/lib/cgi-bin/email_generator.pl
+COPY ./cgi-bin/calcular_promedio.pl /usr/lib/cgi-bin/calcular_promedio.pl  # Copia del nuevo script
 
 # Darle permisos para que ejecute
 RUN chmod +x /usr/lib/cgi-bin/email_generator.pl
+RUN chmod +x /usr/lib/cgi-bin/calcular_promedio.pl  # Permisos para el nuevo script
 
 # Arreglar el error de Windows
 RUN sed -i 's/\r$//' /usr/lib/cgi-bin/email_generator.pl
+RUN sed -i 's/\r$//' /usr/lib/cgi-bin/calcular_promedio.pl  # Arreglo para el nuevo script
 
 RUN echo "<Directory /usr/lib/cgi-bin>\n\
     AllowOverride None\n\
