@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Crear Correo</title>
+    <title>Menu Principal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="header">
-        <h1>Crear Correo Electrónico</h1>
+        <h1>Bienvenido</h1>
     </div>
     <div class="content">
-        <form action="cgi-bin/email_generator.pl" method="GET">
-            <input type="text" placeholder="Ingrese su nombre" name="username" required>
-            <input type="text" name="domain" placeholder="Dominio" required>
-            <button type="submit">Crear Correo</button>
-        </form>
+        <button onclick="location.href='crear_correo.html'">Crear Correo Electrónico</button>
+        <button onclick="location.href='calcular_promedio.html'">Calcular Promedio</button>
     </div>
     <div class="footer">
         <p class="autor">Edson <span class="icon">&lt;/&gt;</span></p>
